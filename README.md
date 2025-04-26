@@ -1,1 +1,1 @@
-Here's a repo that contains all of my automations for Windows.
+A repo that contains all scripts and projects related to automating Windows.
