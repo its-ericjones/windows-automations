@@ -19,7 +19,7 @@ This setup toggles my display mode and power profile when Steam launches and rev
 ### `Set-StudioDisplayMode.ps1` / `Set-StudioDisplayMode.bat`
 
 - Reverts the display resolution to 5120x2880 (Studio Display native).
-- Switches back to "Balanced" or a custom power plan suited for day-to-day use.
+- Switches back to "Balanced".
 - Again, The `.bat` file is just a wrapper so I can double-click it or call it from other scripts without needing to invoke PowerShell directly.
 
 ### `SteamTrayWatcher.ps1`
