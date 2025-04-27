@@ -36,15 +36,15 @@ This ties both `.bat` scripts together and adds a system tray icon in the taskba
 The tray icon gives me visual feedback about the current mode without needing to open Task Manager or guess if the scripts actually ran.
 
 ![SteamTrayWatcher script](./screenshots/SteamTrayWatcher-Powershell-Output.png)
-_Script output that is hidden in the background._
+^ _Script output that is hidden in the background._
 
 ![SystemTrayIconGamingMode screenshot](./screenshots/SystemTrayIconGamingMode.png)
 
-_System tray icon of Gaming Mode_
+^ _System tray icon of Gaming Mode_
 
 ![SystemTrayIconStudioDisplayMode screenshot](./screenshots/SystemTrayIconStudioMode.png)
 
-_System tray icon of Studio Display Mode_
+^ _System tray icon of Studio Display Mode_
 
 ## Next Steps
 
