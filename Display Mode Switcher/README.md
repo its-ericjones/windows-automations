@@ -63,4 +63,4 @@ Here’s what I’m imagining:
 - The Pi updates the web server state, which the XPS detects.
 - Steam closes, the script runs to revert everything back to Studio Display Mode, and the LED switches to a different color.
 
-It’s basically the same setup I already have, just expanded into something physical.
+It’s more or less the same setup I already have, just expanded into something physical.
