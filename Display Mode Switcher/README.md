@@ -33,10 +33,10 @@ The tray icon gives me visual feedback about the current mode without needing to
 
 ## Next Steps
 
-Getting all of that working has been pretty great, but it also got me thinking — I have a Raspberry Pi, LEDs, buttons, resistors, a breadboard — basically a bunch of hardware from previous classes that's just been sitting around collecting dust. So I figured, why not actually use it?
+Getting all of that working has been pretty great, but it also got me thinking, since I have a Raspberry Pi, LEDs, buttons, resistors, a breadboard — basically a bunch of hardware from previous classes that's just been sitting around collecting dust, why not actually use it?
 
 The idea I landed on is to essentially build my own version of a Stream Deck — a little hardware device where you can map physical buttons to shortcuts. Instead of buying one, I figured I’d try making my own since I already have the parts.
 
-Here’s what I’m imagining: I sit down at my computer, press a button wired to the Raspberry Pi, the Pi sends a signal over to the XPS, and the watcher script, which is already running in the background, picks it up. Once it detects the button press, it launches Steam and automatically switches the resolution and power plan, just like it does now. Then the computer would send a signal back to the Pi to light up an LED,as another visual indicator that Steam is running. When I'm done playing, I press the button again, it closes Steam, runs the script to revert everything back to Studio Display Mode, and switches the LED to a different color.
+Here’s what I’m imagining: I sit down at my computer, press a button wired to the Raspberry Pi, the Pi sends a signal over to the XPS, and the watcher script, which is already running in the background, picks it up. Once it detects the button press, it launches Steam and automatically switches the resolution and power plan, just like it does now. Then the computer would send a signal back to the Pi to light up an LED, as another visual indicator that Steam is running. When I'm done playing, I press the button again, it closes Steam, runs the script to revert everything back to Studio Display Mode, and switches the LED to a different color.
 
-It’s basically the same setup I already have — just expanded into something physical.
+It’s basically the same setup I already have, just expanded into something physical.
