@@ -1,0 +1,1 @@
+powershell.exe -ExecutionPolicy Bypass -File "C:\Scripts\Display\Set-GamingMode.ps1"
