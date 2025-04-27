@@ -55,12 +55,12 @@ The idea I landed on is to essentially build my own version of a Stream Deck —
 Here’s what I’m imagining:
 
 - I sit down at my computer and press a button wired to the Raspberry Pi.
-- The Pi sends a signal over to the XPS.
-- The watcher script — which is already running in the background — picks up the signal.
+- The Raspberry Pi, running a small local web server, registers the button press.
+- The XPS, which is always listening for updates from the Pi’s web server, picks up that the button was pressed.
 - Once it detects the button press, it launches Steam and automatically switches the resolution and power plan, just like it does now.
-- The computer then sends a signal back to the Pi to light up an LED as a visual indicator that Steam is running.
+- After Steam is running, the XPS sends a response back to the Pi to light up an LED as a visual indicator that Steam is active.
 - When I'm done playing, I press the button again.
-- The Pi sends another signal to the XPS.
+- The Pi updates the web server state, which the XPS detects.
 - Steam closes, the script runs to revert everything back to Studio Display Mode, and the LED switches to a different color.
 
 It’s basically the same setup I already have, just expanded into something physical.
