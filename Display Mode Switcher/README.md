@@ -48,19 +48,21 @@ The tray icon gives me visual feedback about the current mode without needing to
 
 ## Next Steps
 
-Getting all of that working has been pretty great, but it also got me thinking, since I have a Raspberry Pi, LEDs, buttons, resistors, a breadboard — basically a bunch of hardware from previous classes that's just been sitting around collecting dust, why not actually use it?
+After getting my software setup working well, I started thinking about the physical hardware I already have: a Raspberry Pi, LEDs, buttons, resistors, and a breadboard - all just collecting dust from previous classes. Why not put them to use?
 
-The idea I landed on is to essentially build my own version of a Stream Deck — a little hardware device where you can map physical buttons to shortcuts. Instead of buying one, I figured I’d try making my own since I already have the parts.
+I landed on building my own version of a [Stream Deck](https://www.elgato.com/us/en/p/stream-deck-mk2-black) - a hardware device with physical buttons mapped to shortcuts, rather than buying one since I already have the components.
 
-Here’s what I’m imagining:
+Though I initially planned to use the Raspberry Pi, I got sidetracked exploring embedded systems and decided to use an [Arduino](https://www.arduino.cc/maker) instead. The Arduino is essentially a board built around a microcontroller chip that lets me write code that talks directly to hardware. Unlike my Raspberry Pi which runs a full Linux operating system with all its layers of abstraction, Arduino code runs directly on the hardware. This direct hardware access makes it perfect for projects where timing really matters, like precisely controlling motors or reading sensors.
 
-- I sit down at my computer and press a button wired to the Raspberry Pi.
-- The Raspberry Pi, running a small local web server, registers the button press.
-- The XPS, which is always listening for updates from the Pi’s web server, picks up that the button was pressed.
-- Once it detects the button press, it launches Steam and automatically switches the resolution and power plan, just like it does now.
-- After Steam is running, the XPS sends a response back to the Pi to light up an LED as a visual indicator that Steam is active.
-- When I'm done playing, I press the button again.
-- The Pi updates the web server state, which the XPS detects.
-- Steam closes, the script runs to revert everything back to Studio Display Mode, and the LED switches to a different color.
+For this simple project, either would work fine, but I'm excited to learn how this closer to the hardware approach works. Microcontrollers like the one on the Arduino board are what power most of the critical embedded systems around us where reliability matters - they have fewer components that can fail, more predictable execution timing, and they're designed for specific tasks rather than trying to be a jack of all trades like the Raspberry Pi.
 
-It’s more or less the same setup I already have, just expanded into something physical.
+What's fascinating me about embedded systems is how ubiquitous they are - these microcontrollers are everywhere but mostly invisible to us. They're in household appliances like washing machines and thermostats, critical systems like car engine control units and pacemakers, and infrastructure components like parking meters and traffic lights. These tiny systems operate with minimal resources compared to single board computers, often running for years on battery power, fitting into small spaces, and responding instantly to inputs. 
+
+All that being said, here's my implementation plan for incorporating hardware with the PowerShell scripts:
+
+- Connect buttons and LEDs to an Arduino board
+- Program Arduino to communicate button presses to the Raspberry Pi via serial connection
+- Keep the Raspberry Pi running as a local web server my XPS can communicate with
+- Have the Raspberry Pi relay the Arduino's button press events to my XPS via web connection
+- When button press is detected, launch Steam to trigger my existing PowerShell scripts
+- Send status updates back through the Pi to the Arduino to illuminate LEDs
