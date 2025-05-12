@@ -46,6 +46,14 @@ The tray icon gives me visual feedback about the current mode without needing to
 
 ^ _System tray icon of Studio Display Mode_
 
+### `SteamTrayWatcherLauncher.ps1`
+
+The `SteamTrayWatcherLauncher.ps1` script is a wrapper for launching the `SteamTrayWatcher.ps1` script that I set to run at system startup. 
+
+1. **Hides the PowerShell Window**: Runs the watcher script in the background without displaying a PowerShell window.
+2. **Bypasses Execution Policy**: Temporarily bypasses the system's execution policy to allow the script to run without modifying global settings.
+
+
 ## Next Steps
 
 After getting my software setup working well, I started thinking about the physical hardware I already have: a Raspberry Pi, LEDs, buttons, resistors, and a breadboard - all just collecting dust from previous classes. Why not put them to use?
