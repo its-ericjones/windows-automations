@@ -68,9 +68,8 @@ What's fascinating me about embedded systems is how ubiquitous they are - these 
 
 All that being said, here's my implementation plan for incorporating hardware with the PowerShell scripts:
 
-- Connect buttons and LEDs to an Arduino board
-- Program Arduino to communicate button presses to the Raspberry Pi via serial connection
-- Keep the Raspberry Pi running as a local web server my XPS can communicate with
-- Have the Raspberry Pi relay the Arduino's button press events to my XPS via web connection
-- When button press is detected, launch Steam to trigger my existing PowerShell scripts
-- Send status updates back through the Pi to the Arduino to illuminate LEDs
+- [x] Connect buttons to an Arduino board
+- [x] Program Arduino to communicate button presses to the Raspberry Pi via serial connection
+- [x] Keep the Raspberry Pi running as a local web server my XPS can communicate with
+- [x] Have the Raspberry Pi relay the Arduino's button press events to my XPS via web connection
+- [x] When button press is detected, launch Steam to trigger my existing PowerShell scripts
