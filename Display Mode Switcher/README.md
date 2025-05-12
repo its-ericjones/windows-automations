@@ -16,7 +16,7 @@ This setup toggles my display mode and power profile when Steam launches and rev
 - Intended for gaming sessions.
 - The `.bat` file is just a wrapper so I can double-click it or call it from other scripts without needing to invoke PowerShell directly.
 
-![Set-GamingMode script](./screenshots/Set-GamingMode-Powershell.png)
+![Set-GamingMode script](./assets/screenshots/Set-GamingMode-Powershell.png)
 
 ### `Set-StudioDisplayMode.ps1` / `Set-StudioDisplayMode.bat`
 
@@ -24,7 +24,7 @@ This setup toggles my display mode and power profile when Steam launches and rev
 - Switches back to the "Balanced" power plan.
 - Again, the `.bat` file is just a wrapper so I can double-click it or call it from other scripts without needing to invoke PowerShell directly.
 
-![Set-StudioDisplayMode script](./screenshots/Set-StudioDisplayMode-Powershell.png)
+![Set-StudioDisplayMode script](./assets/screenshots/Set-StudioDisplayMode-Powershell.png)
 
 ### `SteamTrayWatcher.ps1`
 
@@ -35,14 +35,14 @@ This ties both `.bat` scripts together and adds a system tray icon in the taskba
 
 The tray icon gives me visual feedback about the current mode without needing to open Task Manager or guess if the scripts actually ran.
 
-![SteamTrayWatcher script](./screenshots/SteamTrayWatcher-Powershell-Output.png)
+![SteamTrayWatcher script](./assets/screenshots/SteamTrayWatcher-Powershell-Output.png)
 ^ _Script output that is hidden in the background._
 
-![SystemTrayIconGamingMode screenshot](./screenshots/SystemTrayIconGamingMode.png)
+![SystemTrayIconGamingMode screenshot](./assets/screenshots/SystemTrayIconGamingMode.png)
 
 ^ _System tray icon of Gaming Mode_
 
-![SystemTrayIconStudioDisplayMode screenshot](./screenshots/SystemTrayIconStudioMode.png)
+![SystemTrayIconStudioDisplayMode screenshot](./assets/screenshots/SystemTrayIconStudioMode.png)
 
 ^ _System tray icon of Studio Display Mode_
 
