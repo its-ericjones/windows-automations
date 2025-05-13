@@ -12,7 +12,7 @@ function IsSteamRunning {
 try {
     while ($true) {
         try {
-            $response = Invoke-WebRequest -Uri "$PiServer/button_status" -TimeoutSec 2 -UseBasicParsing
+            $response = Invoke-WebRequest -Uri "$PiServer/button_status" -TimeoutSec 2
             
             if ($response.Content -eq "PRESSED") {
                 # Check the current state of Steam
