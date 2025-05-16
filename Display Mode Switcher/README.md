@@ -303,3 +303,88 @@ $SteamIsRunning = $false
 - `$SteamPath`: Absolute path to steam.exe. This is the application that will be launched or closed.
 - `$SteamIsRunning`: Tracks whether Steam is currently open.
 
+### Helper Function: Checking Steam Status
+```
+function IsSteamRunning {
+    $steamProcess = Get-Process -Name "steam" -ErrorAction SilentlyContinue
+    return ($null -ne $steamProcess)
+}
+```
+- Checks if the Steam process is currently running.
+- `-ErrorAction SilentlyContinue` prevents errors from displaying if Steam isn’t running.
+- Returns `True` if Steam is found in the process list, otherwise `False`.
+
+### Main Loop
+```
+try {
+    while ($true) {
+```
+- The outer `try` block catches `Ctrl+C` interrupts or critical failures.
+- The `while ($true)` loop runs indefinitely, polling the Raspberry Pi once per second.
+
+#### Step 1: Sending HTTP Request
+```
+$response = Invoke-WebRequest -Uri "$PiServer/button_status" -TimeoutSec 2
+```
+- Sends a GET request to `/button_status` on the Flask server.
+- `TimeoutSec 2` ensures the script doesn't hang if the Pi doesn't respond.
+
+#### Step 2: Handling Button Press
+```
+if ($response.Content -eq "PRESSED") {
+```
+- If the response content is exactly `"PRESSED"`:
+  - The script checks the current status of Steam.
+
+#### Step 3: Conditional Logic for Steam Control
+```
+$SteamIsRunning = IsSteamRunning
+```
+
+- Calls the helper function to check if Steam is open.
+
+##### If Steam is already running:
+```
+Stop-Process -Name "steam" -Force -ErrorAction SilentlyContinue
+```
+- Kills the Steam process.
+- `-Force` ensures termination even if Steam is frozen or unresponsive.
+- Notifies the user.
+
+##### If Steam is not running:
+```
+Start-Process -FilePath $SteamPath
+```
+- Launches Steam using the full path provided at the top.
+- Notifies the user.
+
+#### Step 4: Preventing Multiple Triggers
+```
+Start-Sleep -Seconds 3
+```
+- This is a manual debounce to avoid processing the same button press multiple times.
+- Waits for 3 seconds after any press action.
+
+### Connection Error Handling
+```
+catch {
+    Write-Host "Connection error. Retrying in 5 seconds..."
+    Start-Sleep -Seconds 5
+}
+```
+- If the Pi is unreachable, the script waits 5 seconds before retrying.
+- This helps avoid flooding the network or overloading the Flask server.
+
+### Polling Delay
+```
+Start-Sleep -Seconds 1
+```
+- Waits 1 second between each polling cycle to prevent unnecessary load on the network and CPU.
+
+### Termination Handling
+```
+catch {
+    Write-Host "Script terminated."
+}
+```
+- When the user presses Ctrl+C or an unrecoverable error occurs, the script exits nofifying the user.
